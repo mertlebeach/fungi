@@ -5,10 +5,10 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.View;
 import android.widget.EditText;
-//
-//import com.parse.Parse;
-//import com.parse.ParseFacebookUtils;
-//import com.parse.ParseObject;
+
+import com.parse.Parse;
+import com.parse.ParseFacebookUtils;
+import com.parse.ParseObject;
 
 
 public class MainActivity extends Activity {
