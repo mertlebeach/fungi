@@ -10,5 +10,7 @@
     <string name="login_button">Log In</string>
     <string name="camara">Camara</string>
     <string name="leader_board">Leader Board</string>
+    <string name="title_activity_leader_board">LeaderBoardActivity</string>
+    <string name="logout">Log Out</string>
 
 </resources>

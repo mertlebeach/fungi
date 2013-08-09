@@ -35,6 +35,14 @@
             android:name="com.mertlebeach.fungifind.LogInActivity"
             android:label="@string/title_activity_log_in" >
         </activity>
+        <activity
+            android:name="com.mertlebeach.fungifind.CamaraActivity"
+            android:label="@string/title_activity_camara" >
+        </activity>
+        <activity
+            android:name="com.mertlebeach.fungifind.LeaderBoardActivity"
+            android:label="@string/title_activity_leader_board" >
+        </activity>
     </application>
 
 </manifest>
