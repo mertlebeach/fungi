@@ -6,5 +6,9 @@
     <string name="hello_world">Hello world!</string>
     <string name="app_id">166475660199140</string>
     <string name="title_activity_camara">CamaraActivity</string>
+    <string name="title_activity_log_in">LogInActivity</string>
+    <string name="login_button">Log In</string>
+    <string name="camara">Camara</string>
+    <string name="leader_board">Leader Board</string>
 
 </resources>

@@ -5,8 +5,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
+import android.view.View;
 
-import com.mertlebeach.fungifind.R;
 import com.parse.LogInCallback;
 import com.parse.Parse;
 import com.parse.ParseException;
@@ -20,32 +20,21 @@ public class MainActivity extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
-		
-      Parse.initialize(this, "f9nuFRqE5CjHeXL5DxtKourEaDLM62sDkiYGjLzV", "JSCyGA0ovUs894LhEnqEijDCZgK2kgezoWLghk4T");
-      ParseFacebookUtils.initialize("166475660199140");
-      ParseFacebookUtils.logIn(this, new LogInCallback() {
-    	  public void done(ParseUser user, ParseException err) {
-    	    if (user == null) {
-    	      Log.d("MyApp", "Uh oh. The user cancelled the Facebook login.");
-    	    } else if (user.isNew()) {
-    	      Log.d("MyApp", "User signed up and logged in through Facebook!");
-    	    } else {
-    	      Log.d("MyApp", "User logged in through Facebook!");
-    	    }
-    	  }
 
-//		@Override
-//		public void done(ParseUser arg0, com.parse.ParseException arg1) {
-//			// TODO Auto-generated method stub
-//			
-//		}
-    	});
 	}
-	@Override
-	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-	  super.onActivityResult(requestCode, resultCode, data);
-	  ParseFacebookUtils.finishAuthentication(requestCode, resultCode, data);
+	
+	
+	/** Called when the user clicks the Send button */
+	public void toLogIn(View view) {
+	    // Do something in response to button
+		
+		
+		Intent intent = new Intent(this, LogInActivity.class);
+	    startActivity(intent);
 	}
+	
+	
+	
 
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
