@@ -26,27 +26,22 @@ public class LogInActivity extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_log_in);
 		
-		 Parse.initialize(this, "f9nuFRqE5CjHeXL5DxtKourEaDLM62sDkiYGjLzV", "JSCyGA0ovUs894LhEnqEijDCZgK2kgezoWLghk4T");
-	      ParseFacebookUtils.initialize("166475660199140");
-	     
-	      ParseFacebookUtils.logIn(this, new LogInCallback() {
-	    	  @Override
-	    	  public void done(ParseUser user, ParseException err) {
-	    	    if (user == null) {
-	    	      Log.d("MyApp", "Uh oh. The user cancelled the Facebook login.");
-	    	    } else if (user.isNew()) {
-	    	      Log.d("MyApp", "User signed up and logged in through Facebook!");
-	    	    } else {
-	    	      Log.d("MyApp", "User logged in through Facebook!");
-	    	    }
-	    	  }
-	    	});
+		 
+//	      ParseFacebookUtils.logIn(this, new LogInCallback() {
+//	    	  @Override
+//	    	  public void done(ParseUser user, ParseException err) {
+//	    	    if (user == null) {
+//	    	      Log.d("MyApp", "Uh oh. The user cancelled the Facebook login.");
+//	    	    } else if (user.isNew()) {
+//	    	      Log.d("MyApp", "User signed up and logged in through Facebook!");
+//	    	    } else {
+//	    	      Log.d("MyApp", "User logged in through Facebook!");
+//	    	    }
+//	    	  }
+//	    	});
+	      
 	}
-	@Override
-	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-	  super.onActivityResult(requestCode, resultCode, data);
-	  ParseFacebookUtils.finishAuthentication(requestCode, resultCode, data);
-	}
+	
 	
 	/** Called when the user clicks the Send button */
 	public void toCamara(View view) {
@@ -59,7 +54,7 @@ public class LogInActivity extends Activity {
 	/** Called when the user clicks the Send button */
 	public void toLogin(View view) {
 	    // Do something in response to button
-		
+		ParseFacebookUtils.getSession().closeAndClearTokenInformation();
 		ParseUser.logOut();
 		Intent intent = new Intent(this, MainActivity.class);
 	    startActivity(intent);
