@@ -4,7 +4,7 @@ import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 
 import android.app.Activity;
-import android.app.DownloadManager.Request;
+
 import android.content.Intent;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
@@ -16,6 +16,7 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.View;
 
+import com.facebook.Request;
 import com.facebook.Response;
 import com.facebook.model.GraphUser;
 import com.parse.LogInCallback;
@@ -25,7 +26,10 @@ import com.parse.ParseFacebookUtils;
 import com.parse.ParseUser;
 
 
+
 public class MainActivity extends Activity {
+	
+	private final static String USER_NAME = "displayname";
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -128,8 +132,8 @@ public class MainActivity extends Activity {
 //
 //	}
 
-	private static void getFacebookIdInBackground() {
-
+	private static void getFacebookIdInBackground() {		
+		
 		Request.executeMeRequestAsync(ParseFacebookUtils.getSession(),
 
 		new Request.GraphUserCallback() {
