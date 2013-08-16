@@ -12,5 +12,6 @@
     <string name="leader_board">Leader Board</string>
     <string name="title_activity_leader_board">LeaderBoardActivity</string>
     <string name="logout">Log Out</string>
+    <string name="album_name">CameraSample</string>
 
 </resources>

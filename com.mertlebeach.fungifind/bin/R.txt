@@ -66,7 +66,8 @@ int drawable com_facebook_profile_picture_blank_square 0x7f02001b
 int drawable com_facebook_top_background 0x7f02001c
 int drawable com_facebook_top_button 0x7f02001d
 int drawable com_facebook_usersettingsfragment_background_gradient 0x7f02001e
-int drawable ic_launcher 0x7f02001f
+int drawable fungi_login_background_xhdpi 0x7f02001f
+int drawable ic_launcher 0x7f020020
 int id action_settings 0x7f04001b
 int id button1 0x7f040003
 int id button2 0x7f040004
@@ -117,6 +118,7 @@ int menu leader_board 0x7f090001
 int menu log_in 0x7f090002
 int menu main 0x7f090003
 int string action_settings 0x7f05001a
+int string album_name 0x7f050024
 int string app_id 0x7f05001c
 int string app_name 0x7f050019
 int string camara 0x7f050020

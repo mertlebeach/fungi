@@ -6,15 +6,18 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context=".MainActivity" >
+    tools:context=".MainActivity"
+    android:background="@drawable/fungi_login_background_xhdpi"
+     >
 
+    
     <Button
         android:id="@+id/button1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentTop="true"
-        android:text="@string/login_button" 
-        android:onClick="toLogIn"/>
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:onClick="toLogIn"
+        android:text="@string/login_button" />
 
 </RelativeLayout>

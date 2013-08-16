@@ -4,6 +4,7 @@ import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 
 import android.app.Activity;
+import android.app.DownloadManager.Request;
 import android.content.Intent;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
@@ -15,6 +16,8 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.View;
 
+import com.facebook.Response;
+import com.facebook.model.GraphUser;
 import com.parse.LogInCallback;
 import com.parse.Parse;
 import com.parse.ParseException;
@@ -30,7 +33,7 @@ public class MainActivity extends Activity {
 		setContentView(R.layout.activity_main);
 		Parse.initialize(this, "f9nuFRqE5CjHeXL5DxtKourEaDLM62sDkiYGjLzV", "JSCyGA0ovUs894LhEnqEijDCZgK2kgezoWLghk4T");
 	      ParseFacebookUtils.initialize("166475660199140");
-	     
+	   //This outputs the keyhash so you can check if the keyhash corresponds to the one online  
 		
 	    try {
 
@@ -66,7 +69,8 @@ public class MainActivity extends Activity {
 	}
 	
 	
-	/** Called when the user clicks the Send button */
+	/** Called when the user clicks the Send button  */
+	//Make sure not to put anything else in this method
 	public void toLogIn(View view) {
 	    // Do something in response to button
 		  ParseFacebookUtils.logIn(this, new LogInCallback() {
@@ -77,13 +81,78 @@ public class MainActivity extends Activity {
 	    	    } else if (user.isNew()) {
 	    	      Log.d("MyApp", "User signed up and logged in through Facebook!");
 	    	      navigatetoLoggedIn();
+	    	      
 	    	    } else {
 	    	      Log.d("MyApp", "User logged in through Facebook!");
 	    	      navigatetoLoggedIn();
 	    	    }
 	    	  }
-	    	});
-//		
+	    	});	
+
+	}
+
+//	protected void initiateFacebook() {
+//
+//		ParseFacebookUtils.logIn(this, new LogInCallback() {
+//
+//			@Override
+//			public void done(ParseUser user, ParseException arg1) {
+//
+//				// TODO Auto-generated method stub
+//
+//				if (user == null) {
+//
+//					Log.d("MyApp",
+//
+//					"Uh oh. The user cancelled the Facebook login.");
+//
+//				} else if (user.isNew()) {
+//
+//					getFacebookIdInBackground();
+//
+//					Log.d("MyApp",
+//
+//					"User signed up and logged in through Facebook!");
+//
+//				} else {
+//
+//					Log.d("MyApp", "User logged in through Facebook!");
+//
+//					getFacebookIdInBackground();
+//
+//				}
+//
+//			}
+//
+//		});
+//
+//	}
+
+	private static void getFacebookIdInBackground() {
+
+		Request.executeMeRequestAsync(ParseFacebookUtils.getSession(),
+
+		new Request.GraphUserCallback() {
+
+			@Override
+			public void onCompleted(GraphUser user, Response response) {
+
+				if (user != null) {
+
+					ParseUser.getCurrentUser().put(USER_NAME,
+							user.getFirstName());
+
+					ParseUser.getCurrentUser()
+
+					.put("fbId", user.getId());
+
+					ParseUser.getCurrentUser().saveInBackground();
+
+				}
+
+			}
+
+		});
 
 	}
 	
